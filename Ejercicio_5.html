@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+
+<body>
+
+    <script>
+
+        // 5.1. Bucle for
+        // • Imprimir los números del 20 al 30 en la consola.
+        // • Imprimir los números pares del 30 al 50 en la consola.
+        // • Calcular la suma de los primeros 50 números naturales.
+        // • Imprimir la tabla de multiplicar del 8.
+        // • Imprimir los elementos de un array.
+        // • Imprimir un patrón de asteriscos en forma de triángulo, con altura 9.
+        // • Calcular la suma de los números pares del 1 al 50.
+        // • Imprimir los números del 30 al 20 en orden descendente.
+        // • Calcular el promedio de un array de números.
+
+        console.log('Imprimir los números del 20 al 30 en la consola.')
+
+        for (let i = 20; i <= 30; i++) {
+            console.log(i);
+        }
+
+        console.log('Imprimir los números pares del 30 al 50 en la consola.')
+
+        for (let i = 30; i <= 50; i += 2) {
+            console.log(i);
+        }
+
+        console.log('Calcular la suma de los primeros 50 números naturales.')
+
+        let suma = 0;
+
+        for (let i = 1; i <= 50; i++) {
+            suma += i;
+        }
+
+        console.log('La suma de los primeros 50 números naturales es: ' + suma);
+
+        console.log('Imprimir la tabla de multiplicar del 8.')
+
+        for (let i = 1; i <= 10; i++) {
+            console.log(`8 x ${i} = ${8 * i}`);
+        }
+
+        console.log('Imprimir los elementos de un array.')
+
+        const array = [1, 2, 3, 4, 5];
+        for (let i = 0; i < array.length; i++) {
+            console.log(array[i]);
+        }
+
+        console.log('Imprimir un patrón de asteriscos en forma de triángulo, con altura 9.')
+
+        const altura = 9;
+        let patron = '';
+        for (let i = 1; i <= altura; i++) {
+            patron += '*'.repeat(i) + '\n';
+        }
+        console.log(patron);
+
+        console.log('Calcular la suma de los números pares del 1 al 50.')
+
+        let sumaPares = 0;
+        for (let i = 2; i <= 50; i += 2)
+            sumaPares += i;
+
+        console.log('La suma de los números pares del 1 al 50 es: ' + sumaPares);
+
+        console.log('Imprimir los números del 30 al 20 en orden descendente.')
+
+        for (let i = 30; i >= 20; i--) {
+            console.log(i);
+        }
+
+        console.log('Calcular el promedio de un array de números.')
+
+        const numeros = [10, 20, 30, 40, 50];
+        let sumaNumeros = 0;
+        for (let i = 0; i < numeros.length; i++) {
+            sumaNumeros += numeros[i];
+        }
+        const promedio = sumaNumeros / numeros.length;
+        console.log(numeros)
+        console.log('El promedio del array de números es: ' + promedio);
+
+    </script>
+
+</body>
+
+</html>

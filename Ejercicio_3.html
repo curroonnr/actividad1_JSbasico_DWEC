@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    
+    <script>
+
+        // 3.1. Escribe un programa que solicite al usuario el radio de un círculo y luego calcule y
+        // muestre el área y el perímetro del círculo.
+        // • Solicita al usuario que ingrese el radio del círculo.
+        // • Define dos funciones: una para calcular el área del círculo y otra para calcular el
+        // perímetro del círculo.
+        // • Usa las fórmulas matemáticas apropiadas dentro de estas funciones para
+        // calcular el área (π * radio^2) y el perímetro (2 * π * radio) del círculo.
+        // • Llama a estas funciones con el radio proporcionado por el usuario como
+        // argumento.
+        // • Muestra los resultados del área y el perímetro al usuario.
+
+        let radio = Number(prompt("Ingrese el radio del círculo: "))
+        const PI = 3.141592653589793;
+
+        function area(r){
+            return PI * r ** 2
+        }
+
+        console.log(area(radio))
+
+        function perimetro(r){
+            return 2 * PI * r
+        }
+
+        console.log(perimetro(radio))
+
+    </script>
+
+    <script>
+
+        // 3.2. Escribe una función llamada calculatePower que tome dos
+        // parámetros: base y exponent. Esta función debe calcular y devolver el resultado de elevar
+        // la base al exponente.
+        // Ejemplo:
+        // // Llamada a la función
+        // let result = calculatePower(2, 3);
+        // console.log(result); // Resultado esperado: 8
+
+        function calculatePower(base, exponent) {
+            return base ** exponent;
+        }
+        let result = calculatePower(6, 3);
+        console.log(result); 
+
+    </script>
+
+</body>
+</html>

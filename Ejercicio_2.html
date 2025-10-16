@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+
+<script>
+
+    // 2.1. Escribe un programa que verifique si un número es positivo, negativo o cero e imprima
+    // el resultado.
+
+    let num = 5
+
+    if (num > 0) {
+        console.log("Positivo")
+    } else if (num < 0) {
+        console.log("Negativo")
+    } else {
+        console.log("El número es 0")
+    }
+
+</script>
+
+<script>
+
+    // 2.2. Crea un programa que determine si una persona es menor de edad, adulta o anciana
+    // según su edad.
+
+    let edad = 25;
+
+    if (edad < 18) {
+        console.log("Menor de edad");
+    } else if (edad < 65) {
+        console.log("Adulto");
+    } else {
+        console.log("Anciano");
+    }
+
+</script>
+
+<script>
+
+    // 2.3. Utiliza un bucle for para imprimir los valores de i desde 0 hasta 4.
+
+    for (let i = 0; i < 5; i++) {
+        console.log(i);
+    }
+
+</script>
+
+<script>
+
+    // 2.4. Utiliza un bucle while para imprimir los valores del contador desde 0 hasta 4.
+
+    let contador = 0;
+    while (contador < 5) {
+        console.log(contador);
+        contador++;
+    }
+
+</script>
+
+<script>
+
+    // 2.5. Emplea un bucle do-while para imprimir los valores de x desde 0 hasta 4.
+
+    let x = 0;
+    do {
+        console.log(x);
+        x++;
+    } while (x < 5)
+
+</script>
+
+<script>
+
+    // 2.6. Crea un bucle for que se detenga cuando i sea igual a 3 usando la instrucción break.
+
+    for (let i = 0; i < 5; i++) {
+        if (i === 3) {
+            break;
+        }
+        console.log(i);
+    }
+
+</script>
+
+<script>
+
+    // 2.7. Implementa un bucle for que salte la iteración cuando j sea igual a 2 usando la
+    // instrucción continue.
+
+    for (let j = 0; j < 5; j++) {
+        if (j === 2) {
+            continue;
+        }
+        console.log(j);
+    }
+
+</script>
+
+<script>
+
+    // 2.8. Convierte un número del 1 al 12 en el nombre del mes correspondiente. El programa
+    // debe solicitar al usuario que ingrese un número del 1 al 12 y luego mostrar el nombre del
+    // mes asociado
+
+    let mesNumero = Number(prompt("Introduce un número del 1 al 12:"));
+    let nombreMes;
+
+    switch (mesNumero) {
+        case 1:
+            nombreMes = "Enero";
+            break;
+        case 2:
+            nombreMes = "Febrero";
+            break;
+        case 3:
+            nombreMes = "Marzo";
+            break;
+        case 4:
+            nombreMes = "Abril";
+            break;
+        case 5:
+            nombreMes = "Mayo";
+            break;
+        case 6:
+            nombreMes = "Junio";
+            break;
+        case 7:
+            nombreMes = "Julio";
+            break;
+        case 8:
+            nombreMes = "Agosto";
+            break;
+        case 9:
+            nombreMes = "Septiembre";
+            break;
+        case 10:
+            nombreMes = "Octubre";
+            break;
+        case 11:
+            nombreMes = "Noviembre";
+            break;
+        case 12:
+            nombreMes = "Diciembre";
+            break;
+        default:
+            nombreMes = "Número inválido";
+    }
+
+    console.log("El mes correspondiente es: " + nombreMes);
+
+</script>
+    
+</body>
+</html>
