@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo de Textos</title>
+</head>
+
+<body>
+
+    <script>
+
+        // 1. Invertir una cadena. Usar una función a la que se le pase un texto como
+        // parámetro. Usar un bucle for.
+
+        let frase1 = "Hola me llamo curro";
+
+        function invertir_cadena(cadena) {
+            let invertida = "";
+            for (let i = cadena.length - 1; i >= 0; i--) {
+                invertida += cadena[i];
+            }
+            return invertida;
+        }
+
+        console.log(invertir_cadena(frase1));
+
+        // 2. Contar cuántas veces aparece una letra en un texto como parámetro.
+        // Usar un bucle for.
+
+        let frase2 = "hola buenos dias hoy me siento bien";
+
+        function letra_aparece(cadena, letra){
+            let contador = 0;
+            for (let i = 0; i < cadena.length; i++){
+                if (cadena[i] == letra){
+                    contador += 1;
+                }
+            }
+            console.log("La letra " + letra + " aparece " + contador + " veces.")
+        }
+
+        letra_aparece(frase2, "o")
+
+        // 3. Detectar si un texto es un palíndromo. Un palíndromo es una palabra o
+        // frase que suena igual leyéndola hacia adelante que hacia atrás (de manera
+        // invertida, comenzando desde la última letra de la frase). Usar una función
+        // a la que se le pase un texto como parámetro.
+
+        let frase3_1 = "Murcielago"
+        let frase3_2 = "reconocer"
+
+        function es_palindromo(cadena){
+            if (cadena.toLowerCase() == invertir_cadena(cadena).toLowerCase()){
+                console.log(cadena + " es palíndromo.");
+            }else console.log(cadena + " NO es palíndromo.");
+        }
+
+        es_palindromo(frase3_1)
+        es_palindromo(frase3_2)
+
+        // 4. Contar las vocales en un texto. Usar una función a la que se le pase un
+        // texto como parámetro. Usar un bucle for.
+
+        let frase4 = "Hola me llamo curro y estoy practicando javascript";
+
+        function contar_vocales(cadena){
+            let contador = 0;
+            let vocales = "aeiou";
+            for (let i = 0; i < cadena.length; i++){
+                if (vocales.includes(cadena[i].toLowerCase())){
+                    contador += 1;
+                }
+            }
+            console.log("El texto tiene " + contador + " vocales.");
+        }
+
+        contar_vocales(frase4);
+
+        // 5. Reemplazar una palabra en una frase. Usar una función a la que se le
+        // pase un texto como parámetro. Usar un bucle for.
+
+        function reemplazar_palabra(cadena, palabra, nueva_palabra){
+            let resultado = "";
+            let palabras = cadena.split(" ");
+            for (let i = 0; i < palabras.length; i++){
+                if (palabras[i] == palabra){
+                    resultado += nueva_palabra + " ";
+                }else{
+                    resultado += palabras[i] + " ";
+                }
+            }
+            return resultado;
+        }
+
+        let frase5 = "Hola me llamo curro y estoy practicando javascript";
+        console.log(reemplazar_palabra(frase5, "curro", "ruben"));
+
+        // 6. Poner en mayúscula la primera letra de cada palabra. Usar una función a
+        // la que se le pase un texto como parámetro. Usar un bucle for.
+
+        let frase6 = "hola me llamo curro y estoy practicando javascript";
+
+        function mayuscula_primera_letra(cadena){
+            let resultado = "";
+            let palabras = cadena.split(" ");
+            for (let i = 0; i < palabras.length; i++){
+                let palabra = palabras[i];
+                let palabra_mayuscula = palabra.charAt(0).toUpperCase() + palabra.slice(1);
+                resultado += palabra_mayuscula + " ";
+            }
+            return resultado;
+        }
+
+        console.log(mayuscula_primera_letra(frase6));
+
+        // 7. Contar cuántas veces una letra aparece en una palabra usando charAt().
+        // Usar una función a la que se le pase un texto como parámetro. Usar un
+        // bucle for.
+
+        let frase7 = "hola buenos dias hoy me siento bien";
+
+        function letra_aparece_charAt(cadena, letra){
+            let contador = 0;
+            for (let i = 0; i < cadena.length; i++){
+                if (cadena.charAt(i) == letra){
+                    contador += 1;
+                }
+            }
+            console.log("La letra " + letra + " aparece " + contador + " veces.");
+        }
+
+        letra_aparece_charAt(frase7, "e")
+
+    </script>
+
+</body>
+
+</html>

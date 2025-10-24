@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios JS Arrays</title>
+    <style>
+        body {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: justify;
+            margin-bottom: 2em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ejercicios JS Arrays</h1>
+
+    <p>
+        <strong>1.</strong> En este script deberás crear un array para guardar los nombres de los días de la semana,
+        empezando por 0 para el domingo. Para comprobar el funcionamiento pide al usuario un
+        número entre 0 y 6 y devuelve el nombre del día. Se supone que el dato tecleado estará
+        entre 0 y 6.
+    </p>
+
+    <p>Si tecleo el número 4 me deberá decir que el día de la semana es jueves.</p>
+
+    <input type="text" id="num_dia">
+    <input type="button" id="boton1" value="Mostrar día">
+
+    <script>
+
+        const dias_semana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+        document.getElementById("boton1").onclick = function(){
+            const num = parseInt(document.getElementById("num_dia").value);
+            if (num >=0 && num <=6){
+                alert("El día de la semana es " + dias_semana[num]);
+            } else {
+                alert("Por favor, introduce un número entre 0 y 6.");
+            }
+        };
+
+
+    </script>
+
+    <p>
+        <strong>2.</strong> Crea un array booleano con dos valores 'verdadero' y 'falso'. Este array te sirve para
+        traduicr los valores true y false. Usalo para que el script muestre un alert con el nombre
+        verdadero si un usuario teclea un valor entre 0 y 9 y falso en el caso contrario.
+    </p>
+
+    <p>Por ejemplo, al teclear 10 deberá devolver falso.</p>
+
+    <input type="text" id="num">
+    <input type="button" id="boton2" value="Enviar">
+
+    <script>
+
+        const booleano = ["Verdadero", "Falso"]
+        document.getElementById("boton2").onclick = function(){
+            const num = parseInt(document.getElementById("num").value);
+            if (num >=0 && num <=9){
+                alert(booleano[0]);
+            } else {
+                alert(booleano[1]);
+            }
+        };
+
+    </script>
+
+    <p>
+        <strong>3.</strong> Sin usar métodos del objeto array, diseña una función llamada sumaLista() capaz de
+        sumar todos los números que forman el array que se le pase como argumento.
+    </p>
+
+    <p>Si ejecuto sumaLista([2,4,5,1,2]) deberá devolver como resultado 14.</p>
+
+    <input type="button" id="boton3" value="Ejecutar">
+
+
+    <script>
+
+        let lista = [2,4,5,1,2];
+
+        function sumaLista(arr) {
+            let suma = 0;
+            for (let i = 0; i < arr.length; i++) {
+                suma += arr[i];
+            }
+            return suma;
+        }
+
+        document.getElementById("boton3").onclick = function() {
+            alert("La suma de " + lista + " es igual a = " + sumaLista(lista));
+        };
+        
+    </script>
+
+    <p>
+        <strong>4.</strong> Diseña un script que vaya leyendo números y guardándolos en un array. Una vez lleno
+        mostrará el array y deberá decir cuántos números son pares y cuantos son impares. La
+        entrada de datos termina cuando el usuario teclea 0 o un valor no numérico.
+    </p>
+
+    <p>
+        Intenta resolverlo sin usar métodos del objeto array, solo indices y longitudes de arrays. No
+        debe aceptar valores no numéricos (isNaN(valor) permite detectar valores no numéricos).
+        Por ejemplo, si tecleo: 3,5,4,6,7,8, 11 el script me dirá que el array de entrada es [3,5,4,6,7,8,
+        11] y que hay 3 pares y 4 impares.
+    </p>
+
+    <input type="text" id="numero">
+    <input type="button" id="boton4.1" value="Añadir">
+    <input type="button" id="boton4.2" value="Finalizar">
+
+    <script>
+
+        let lista_num = [];
+
+        function paresLista(arr) {
+            let pares = 0;
+            for (let i = 0; i < arr.length; i++) {
+                const val = arr[i];
+                if (!isNaN(val) && val % 2 === 0) {
+                    pares += 1;
+                }
+            }
+            return pares;
+        }
+
+        function imparesLista(arr) {
+            let impares = 0;
+            for (let i = 0; i < arr.length; i++) {
+                const val = arr[i];
+                if (!isNaN(val) && Math.abs(val % 2) === 1) {
+                    impares += 1;
+                }
+            }
+            return impares;
+        }
+
+        document.getElementById("boton4.1").onclick = function () {
+            const v = parseInt(document.getElementById("numero").value);
+            if (isNaN(v) || v === 0) {
+                document.getElementById("boton4.2").onclick();
+                return;
+            }
+            lista_num.push(v);
+            document.getElementById("numero").value = "";
+        };
+
+        document.getElementById("boton4.2").onclick = function () {
+            alert("En la lista [" + lista_num +"] hay " + paresLista(lista_num) + " números pares, y " + imparesLista(lista_num) + " números impares");
+        };
+
+    </script>
+
+
+    <p>
+        <strong>5.</strong> Escribe una función que pueda devolver el valor más pequeño de un array numérico o el
+        índice de ese valor. El segundo parámetro de la función dirá si debe devolver el valor ("v") o
+        el índice ("i"). No uses métodos del objeto array.
+    </p>
+
+    <p>
+        Se supone que el primer parámetro siempre será una matriz llena con al menos 1 número
+        y sin duplicados. Se supone que el segundo parámetro será una letra con uno de dos
+        valores: 'v' 'i'.
+    </p>
+
+    <p>min([4,5,7], 'v') devolverá 4, mientras que min([4,5,7], 'i') devolverá 0.</p>
+
+    <input type="text" id="input5">
+    <input type="button" id="boton5" value="Ejecutar">
+
+    <script>
+
+        function min(arr, tipo) {
+            let minVal = arr[0];
+            let minIdx = 0;
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] < minVal) {
+                    minVal = arr[i];
+                    minIdx = i;
+                }
+            }
+            return tipo === 'v' ? minVal : minIdx;
+        }
+
+        document.getElementById("boton5").onclick = function() {
+            const numeros = [4, 5, 7];
+            const tipo = prompt("Introduce 'v' para valor o 'i' para índice:");
+            alert(min(numeros, tipo));
+        };
+
+    </script>
+
+
+    <p>
+        <strong>6.</strong> Escribe una función que determina si la letra que se le pasa como argumento se
+        encuentra contenida dentro de un array de letras que se le pasa como segundo argumento.
+        Se trata de resolverlo sin usar métodos del objeto array, solo el dato tipo array.
+    </p>
+    
+    <p>existeEn('a', ['w','e','r','i']) devolverá false porque la letra 'a' no existe en el array.</p>
+
+    <input type="text" id="input6">
+    <input type="button" id="boton6" value="Ejecutar">
+
+    <script>
+
+        function existeEn(letra, arr) {
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] === letra) return true;
+            }
+            return false;
+        };
+
+        document.getElementById("boton6").onclick = function() {
+            const letra = document.getElementById("input6").value;
+            const arr = ['w','e','r','i'];
+            alert(existeEn(letra, arr));
+        };
+
+    </script>
+
+    <p>
+        <strong>7.</strong> En este ejercicio debes crear una función que reciba como argumento una letra y
+        devuelva verdadero o falso (tru o false) dependiendo de si es una vocal o no. Debe funcionar
+        igual con mayúsculas y con minúsculas y por supuesto usando arrays. Solo se aceptan
+        letras internacionales (sin acentos).
+    </p>
+    
+    <p>Por ejemplo, esVocal('A') dirá true, mientras que esVocal("z") dirá false.</p>
+
+    <input type="text" id="input7">
+    <input type="button" id="boton7" value="Ejecutar">
+
+    <script>
+
+        function esVocal(letra) {
+            const vocales = ['a','e','i','o','u'];
+            letra = letra.toLowerCase();
+            for (let i = 0; i < vocales.length; i++) {
+                if (letra === vocales[i]) return true;
+            }
+            return false;
+        };
+
+        document.getElementById("boton7").onclick = function() {
+            const letra = document.getElementById("input7").value;
+            alert(esVocal(letra));
+        };
+
+    </script>
+
+
+    <p>
+        <strong>8.</strong> Escribe una función que reciba como argumento un array y que devuelva una cadena de
+        caracteres formada por los elementos del array separados por un guión
+        Si llamamos a la función como listar(["rojo", "verde", "azul") deberá devolver "rojo-verde-
+        azul"
+    </p>
+
+    <input type="text" id="input8">
+    <input type="button" id="boton8" value="Ejecutar">
+
+    <script>
+
+        function listar(arr) {
+            let resultado = '';
+            for (let i = 0; i < arr.length; i++) {
+                resultado += arr[i];
+                if (i < arr.length - 1) resultado += '-';
+            }
+            return resultado;
+        };
+
+        document.getElementById("boton8").onclick = function() {
+            const arr = ["rojo","verde","azul"];
+            alert(listar(arr));
+        };
+
+    </script>
+
+
+    <p>
+        <strong>9.</strong> Un servicio de atención al ciente tiene establecido turnos semanales para sus
+        empleados de manera que cada día de la semana se encarga del servicio una
+        persona: lunes - María, Martes - Luis, Miércoles - Antonia, Jueves - Pedro, Viernes -
+        Marisa.
+    </p>
+    
+    <p>
+        Usa un array para almacenar los datos del servicio. En este array cada elemento será un par
+        día - nombre.
+    </p>
+    
+    <p>
+        Crea una función que responda con el nombre de la persona encargada del servicio
+        sabiendo el día. Si el día no existe deberá decir que no hay servicio. Los nombres de los días
+        deben ir en minúsculas.
+    </p>
+    
+    <p>
+        Si le pido servicio('Lunes') me debería decir "Este día se encarga María" y si le pido
+        servicio(Miércoles") me daría Antonia.
+    </p>
+    
+    <input type="text" id="input9">
+    <input type="button" id="boton9" value="Ejecutar">
+
+    <script>
+
+        const servicioSemana = [
+            ['lunes','María'],
+            ['martes','Luis'],
+            ['miércoles','Antonia'],
+            ['jueves','Pedro'],
+            ['viernes','Marisa']
+        ];
+
+        function servicio(dia) {
+            dia = dia.toLowerCase();
+            for (let i = 0; i < servicioSemana.length; i++) {
+                if (servicioSemana[i][0] === dia) {
+                    return "Este día se encarga " + servicioSemana[i][1];
+                }
+            }
+            return "No hay servicio";
+        }
+
+        document.getElementById("boton9").onclick = function() {
+            const dia = document.getElementById("input9").value;
+            alert(servicio(dia));
+        };
+
+    </script>
+
+
+    <p>
+        <strong>10.</strong> Una tienda vende monitores, teclados y ratones. Los precios se almacenan en una
+        estructura array conde cada elemento es un par producto - precio.
+    </p>
+    
+    <p>
+        Diseña una función que reciba como argumento el nombre de un producto (minúscula) y
+        devuelva su precio.
+    </p>
+    
+    <p>
+        Si la lista de precios es monitor: 200€, teclado: 20€ ratón: 10€, al pedir precio('monitor') me
+        devolverá 200.
+    </p>
+
+    <input type="text" id="input10">
+    <input type="button" id="boton10" value="Ejecutar">
+
+    <script>
+
+        const listaPrecios = [
+            ['monitor', 200],
+            ['teclado', 20],
+            ['ratón', 10]
+        ];
+
+        function precio(producto) {
+            for (let i = 0; i < listaPrecios.length; i++) {
+                if (listaPrecios[i][0] === producto) return listaPrecios[i][1];
+            }
+            return "Producto no encontrado";
+        }
+
+        document.getElementById("boton10").onclick = function() {
+            const producto = document.getElementById("input10").value.toLowerCase();
+            alert(precio(producto));
+        };
+
+    </script>
+
+
+</body>
+</html>
