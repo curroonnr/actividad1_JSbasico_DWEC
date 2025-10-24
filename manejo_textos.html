@@ -107,8 +107,17 @@
             let palabras = cadena.split(" ");
             for (let i = 0; i < palabras.length; i++){
                 let palabra = palabras[i];
-                let palabra_mayuscula = palabra.charAt(0).toUpperCase() + palabra.slice(1);
-                resultado += palabra_mayuscula + " ";
+                if (palabra.length === 0) {
+                    resultado += " ";
+                } else {
+                    let resto = "";
+                    for (let j = 1; j < palabra.length; j++){
+                        resto += palabra[j];
+                    }
+                    let primera = palabra[0] ? palabra[0].toUpperCase() : "";
+                    let palabra_mayuscula = primera + resto;
+                    resultado += palabra_mayuscula + " ";
+                }
             }
             return resultado;
         }
